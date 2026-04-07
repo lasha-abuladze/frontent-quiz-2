@@ -1,0 +1,44 @@
+
+
+@font-face {
+    font-family: 'Rubiky';
+    src: url(./assets/fonts/Rubik-VariableFont_wght.ttf) format('truetype');
+    font-weight: 100 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+///font variable
+$mainFont: "Rubiky";
+
+
+/// color variables
+$color-white: #FFFFFF;
+$color-black: #000000;
+$color-grey: #626C7F;
+$color-grey--light: #F4F6FA;
+$color-blue--900: #313E51;
+$color-blue--850: #3B4D66;
+$color-blue--50: #EBF0FF;
+$color-green: #2FD887;
+$color-green--light: #E0FDEF;
+$color-purple: #A729F5;
+$color-purple--light: #F6E7FF;
+$color-orange: #FF7E35;
+$color-orange--light: #FFF5ED;
+$color-red: #EE5454;
+
+
+
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
