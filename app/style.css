@@ -16,12 +16,31 @@
   display: none;
 }
 
+.toggle-circle--dark-mode {
+  left: calc(100% - 3px) !important;
+  transform: translate(-100%, -50%) !important;
+}
+
+.body--dark-mode {
+  color: #FFFFFF;
+  background-color: #313E51;
+}
+
+.sub-h--dark-mode {
+  color: #EBF0FF !important;
+}
+
+.quiz-topic--dark-mode {
+  background-color: #3B4D66 !important;
+}
+
 body {
   font-family: "Rubik";
   color: #000000;
   padding: 26px 24px;
   box-sizing: border-box;
   background-color: #EBF0FF;
+  transition: all 0.3s;
 }
 body .main-header {
   max-width: 640px;
@@ -41,7 +60,7 @@ body .main-header .theme-toggle-container .icon-toggle {
   width: 16px;
   height: 16px;
 }
-body .main-header .theme-toggle-container .theme-toggle {
+body .main-header .theme-toggle-container .btn-theme-toggle {
   width: 32px;
   height: 20px;
   background-color: #A729F5;
@@ -51,7 +70,7 @@ body .main-header .theme-toggle-container .theme-toggle {
   outline: none;
   cursor: pointer;
 }
-body .main-header .theme-toggle-container .theme-toggle .toggle-circle {
+body .main-header .theme-toggle-container .btn-theme-toggle .toggle-circle {
   width: 12px;
   height: 12px;
   background-color: #FFFFFF;
@@ -60,6 +79,7 @@ body .main-header .theme-toggle-container .theme-toggle .toggle-circle {
   top: 50%;
   left: 3px;
   transform: translateY(-50%);
+  transition: all 0.3s;
 }
 body .main-section {
   max-width: 640px;
@@ -78,10 +98,11 @@ body .main-section .section--start-menu header h1 b {
   display: block;
   font-weight: 400;
 }
-body .main-section .section--start-menu header p {
+body .main-section .section--start-menu header .sub-h {
   font-size: 16px;
   color: #626C7F;
   font-style: italic;
+  transition: all 0.3s;
 }
 body .main-section .section--start-menu .quiz-topics-list {
   display: flex;
@@ -99,6 +120,7 @@ body .main-section .section--start-menu .quiz-topics-list .quiz-topic {
   border-radius: 5px;
   padding: 16px;
   box-sizing: border-box;
+  transition: all 0.3s;
   cursor: pointer;
 }
 body .main-section .section--start-menu .quiz-topics-list .quiz-topic .quiz-topic--name {
