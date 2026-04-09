@@ -1,7 +1,7 @@
 
 
 @font-face {
-    font-family: 'Rubiky';
+    font-family: 'Rubik';
     src: url(./assets/fonts/Rubik-VariableFont_wght.ttf) format('truetype');
     font-weight: 100 800;
     font-style: normal;
@@ -41,4 +41,58 @@ $color-red: #EE5454;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.display-none {
+    display: none;
+}
+
+
+////////////////////////////////////////////////////////
+
+body {
+    font-family: $mainFont, 'sans-serif';
+    color: $color-black;
+    padding: 26px 24px;
+    box-sizing: border-box;
+    background-color: $color-blue--50;
+
+    .main-header {
+        max-width: 640px;
+        margin: auto;
+        @include flex-row();
+        justify-content: end;
+
+        .theme-toggle-container {
+            @include flex-row();
+            gap: 8px;
+
+            .icon-toggle {
+                width: 16px;
+                height: 16px;
+            }
+
+            .theme-toggle {
+                width: 32px;
+                height: 20px;
+                background-color: $color-purple;
+                border-radius: 10px;
+                position: relative;
+                border: none;
+                outline: none;
+                cursor: pointer;
+
+                .toggle-cyrcle {
+                    width: 12px;
+                    height: 12px;
+                    background-color: $color-white;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 50%;
+                    left: 3px;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
 }

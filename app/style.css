@@ -1,9 +1,58 @@
 @font-face {
-  font-family: "Rubiky";
+  font-family: "Rubik";
   src: url(./assets/fonts/Rubik-VariableFont_wght.ttf) format("truetype");
   font-weight: 100 800;
   font-style: normal;
   font-display: swap;
+}
+.display-none {
+  display: none;
+}
+
+body {
+  font-family: "Rubiky", "sans-serif";
+  color: #000000;
+  padding: 26px 24px;
+  box-sizing: border-box;
+  background-color: #EBF0FF;
+}
+body .main-header {
+  max-width: 640px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+}
+body .main-header .theme-toggle-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+body .main-header .theme-toggle-container .icon-toggle {
+  width: 16px;
+  height: 16px;
+}
+body .main-header .theme-toggle-container .theme-toggle {
+  width: 32px;
+  height: 20px;
+  background-color: #A729F5;
+  border-radius: 10px;
+  position: relative;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+body .main-header .theme-toggle-container .theme-toggle .toggle-cyrcle {
+  width: 12px;
+  height: 12px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  transform: translateY(-50%);
 }
 
 /*# sourceMappingURL=style.css.map */
