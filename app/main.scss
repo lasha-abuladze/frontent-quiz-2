@@ -8,8 +8,16 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Rubik';
+    src: url(./assets/fonts/Rubik-Italic-VariableFont_wght.ttf) format('truetype');
+    font-weight: 100 800;
+    font-style: italic;
+    font-display: swap;
+}
+
 ///font variable
-$mainFont: "Rubiky";
+$mainFont: "Rubik";
 
 
 /// color variables
@@ -51,7 +59,7 @@ $color-red: #EE5454;
 ////////////////////////////////////////////////////////
 
 body {
-    font-family: $mainFont, 'sans-serif';
+    font-family: $mainFont;
     color: $color-black;
     padding: 26px 24px;
     box-sizing: border-box;
@@ -82,7 +90,7 @@ body {
                 outline: none;
                 cursor: pointer;
 
-                .toggle-cyrcle {
+                .toggle-circle {
                     width: 12px;
                     height: 12px;
                     background-color: $color-white;
@@ -94,5 +102,91 @@ body {
                 }
             }
         }
+
+
+    }
+
+    .main-section {
+        max-width: 640px;
+        margin: auto;
+        margin-top: 64px;
+
+        .section--start-menu{
+            header {
+                margin-bottom: 40px;
+
+                h1 {
+                    font-size: 40px;
+                    font-weight: 100;
+                    margin-bottom: 27px;
+
+                    b {
+                        display: block;
+                        font-weight: 400;
+                    }
+                }
+
+                p {
+                    font-size: 16px;
+                    color: $color-grey;
+                    font-style: italic;
+                }
+            }
+
+            .quiz-topics-list {
+
+                @include flex-column();
+                gap: 8px;
+
+                .quiz-topic {
+                    background-color: $color-white;
+                    width: 100%;
+                    @include flex-row();
+                    gap: 8px;
+                    border-radius: 5px;
+                    padding: 16px;
+                    box-sizing: border-box;
+
+                    cursor: pointer;
+
+                    .quiz-topic--name {
+                        font-size: 18px;
+                        font-weight: 400;
+                    }
+
+                    .quiz-topic--icon {
+                        width: 40px;
+                        height: 40px;
+                        @include flex-column();
+                        justify-content: center;
+                        border-radius: inherit;
+
+                        img {
+                            width: 25px;
+                            height: 25px;
+                        }
+                    }
+
+                    .quiz-topic--icon-html {
+                        background-color: $color-orange--light;
+                    }
+
+                    .quiz-topic--icon-css {
+                        background-color: $color-green--light;
+                    }
+
+                    .quiz-topic--icon-js {
+                        background-color: $color-blue--50;
+                    }
+
+                    .quiz-topic--icon-accessibility {
+                        background-color: $color-purple--light;
+                    }
+
+                }
+            }
+        }
+
+        
     }
 }
