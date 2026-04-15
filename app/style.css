@@ -21,16 +21,14 @@
   transform: translate(-100%, -50%) !important;
 }
 
-.body--dark-mode {
+.style-dark-mode {
   color: #FFFFFF;
   background-color: #313E51;
 }
-
-.sub-h--dark-mode {
+.style-dark-mode .sub-h {
   color: #EBF0FF !important;
 }
-
-.quiz-topic--dark-mode {
+.style-dark-mode .quiz-topic {
   background-color: #3B4D66 !important;
 }
 

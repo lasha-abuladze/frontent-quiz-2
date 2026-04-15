@@ -64,17 +64,30 @@ $transition: all 0.3s;
     transform: translate(-100%, -50%) !important;
 }
 
-.body--dark-mode {
+// .body--dark-mode {
+//     color: $color-white;
+//     background-color: $color-blue--900;
+// }
+
+// .sub-h--dark-mode {
+//     color: $color-blue--50 !important;
+// }
+
+// .quiz-topic--dark-mode {
+//     background-color: $color-blue--850 !important;
+// }
+
+.style-dark-mode {
     color: $color-white;
     background-color: $color-blue--900;
-}
 
-.sub-h--dark-mode {
-    color: $color-blue--50 !important;
-}
+    .sub-h {
+        color: $color-blue--50 !important;
+    }
 
-.quiz-topic--dark-mode {
-    background-color: $color-blue--850 !important;
+    .quiz-topic {
+        background-color: $color-blue--850 !important;
+    }
 }
 
 
