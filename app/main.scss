@@ -393,6 +393,80 @@ body {
             }
         }
 
+        .section--quiz-completed {
+
+            h1 {
+                font-size: 40px;
+                font-weight: 300;
+                margin-bottom: 45px;
+
+                b {
+                    display: block;
+                    font-weight: 400;
+                }
+            }
+
+            .final-result {
+                text-align: center;
+                background-color: $color-white;
+                padding: 32px 80px;
+                box-sizing: border-box;
+                border-radius: 10px;
+                margin-bottom: 16px;
+
+                .final-result--topic {
+                    @include flex-row();
+                    gap: 8px;
+                    margin-bottom: 28px;
+                    
+                    .img-container {
+                        width: 40px;
+                        height: 40px;
+                        background-color: $color-purple--light;
+                        @include flex-column();
+                        justify-content: center;
+                        border-radius: 5px;
+                        
+                        img {
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+
+                    span {
+                        font-size: 18px;
+                        font-weight: 400;
+                    }
+                }
+
+                .final-scroe {
+                    display: block;
+                    font-size: 80px;
+                    margin-bottom: 30px;
+                }
+
+                .questions-number {
+                    font-size: 16px;
+                    color: $color-grey;
+                    font-style: italic;
+                    transition: $transition;
+                }
+            }
+
+            .btn-submit {
+                width: 100%;
+                height: 56px;
+                border: none;
+                outline: none;
+                background-color: $color-purple;
+                border-radius: 10px;
+                color: $color-white;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+            }
+
+        }
         
     }
 }

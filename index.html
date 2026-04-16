@@ -76,7 +76,7 @@
 
         </section>
 
-        <section class="section section--question">
+        <section class="section section--question display-none">
 
             <header>
                 <label for="quiz-progress" class="question-counter">
@@ -163,7 +163,31 @@
                     Next Question
                 </button>    
             </form>
-            
+
+        </section>
+
+        <section class="section section--quiz-completed">
+            <h1>
+                Quiz completed
+                <b>You scored...</b>
+            </h1>
+
+            <div class="final-result">
+
+                <div class="final-result--topic">
+                    <div class="img-container">
+                        <img src="./app/assets/images/icon-accessibility.svg" alt="#">
+                    </div>
+                    <span>Accessibility</span>
+                </div>
+
+                <strong class="final-scroe">8</strong>
+                <span class="questions-number">out of 10</span>
+            </div>
+
+            <button type="submit" class="btn--play-again btn-submit">
+                Play Again
+            </button>
         </section>
     </main>
 
