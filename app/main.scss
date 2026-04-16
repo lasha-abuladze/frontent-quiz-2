@@ -216,6 +216,183 @@ body {
             }
         }
 
+        .section--question {
+            header {
+                margin-bottom: 40px;
+
+                .question-counter {
+                    font-size: 16px;
+                    color: $color-grey;
+                    font-style: italic;
+                    transition: $transition;
+                    display: block;
+                    margin-bottom: 26px;
+                }
+
+                .question {
+                    font-size: 18px;
+                    font-weight: 400;
+                    line-height: 25px;
+                    height: 96px;
+                }
+
+                /// Base styles for ALL browsers
+                #quiz-progress {
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+                    border: none;
+                    width: 100%;
+                    height: 16px;
+                    border-radius: 10px;
+                    
+                    /// Firefox 
+                    background-color: $color-white; 
+                    padding: 4px;
+                    box-sizing: border-box;
+                }
+
+                /// Chrome, Safari, Edge - Track Styling
+                #quiz-progress::-webkit-progress-bar {
+                    background-color: $color-white;
+                    border-radius: 10px;
+                }
+
+                //// Chrome, Safari, Edge - Progress Value Styling
+                #quiz-progress::-webkit-progress-value {
+                    background-color: $color-purple;
+                    border-radius: 10px;
+                }
+
+                /// Firefox - Progress Value Styling
+                #quiz-progress::-moz-progress-bar {
+                    background-color: $color-purple;
+                    border-radius: 10px;
+                }
+            }
+
+            .answers-list {
+                margin-bottom: 16px;
+                @include flex-column();
+                gap: 16px;
+
+                .answer-container {
+                    width: 100%;
+                    border-radius: 10px;
+
+                    .label--inp-radio {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        background-color: $color-white;
+                        border: 3px solid $color-white;
+                        padding: 16px;
+                        box-sizing: border-box;
+
+                        @include flex-row();
+                        justify-content: space-between;
+                        border-radius: inherit;
+                        transition: all 0.2s;
+
+                        &:has(.inp-radio:checked) {
+                            border: 3px solid $color-purple;
+                            box-sizing: border-box
+                        }
+
+                        .input-container {
+
+                            @include flex-row();
+                            gap: 16px;
+
+                            .inp-radio {
+                                width: 40px;
+                                height: 40px;
+                                position: relative;
+                            }
+
+                            .inp-radio::after {
+                                content: "";
+                                z-index: 1;
+                                width: 100%;
+                                height: 100%;
+                                position: absolute;
+                                background-color: $color-grey--light;
+                                border-radius: 5px;
+                                left: 0;
+                                top: 0;
+                                transition: 0.2s;
+                            }
+
+                            .inp-radio::before {
+                                content: "";
+                                position: absolute;
+                                z-index: 2;
+                                display: block;
+                                font-size: 24px;
+                                font-weight: 500;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                color: $color-grey;
+                                transition: 0.2s;
+                            }
+
+                            .inp-radio:checked::after {
+                                background-color: $color-purple;
+                            }
+
+                            .inp-radio:checked::before {
+                                color: $color-white;
+                            }
+
+                            #answer-1::before {
+                                content: "A";
+                            }
+
+                            #answer-2::before {
+                                content: "B";
+                            }
+
+                            #answer-3::before {
+                                content: "C";
+                            }
+
+                            #answer-4::before {
+                                content: "D";
+                            }
+
+                            .answer {
+                                font-size: 18px;
+                                font-weight: 500;
+                            }
+                        }
+
+                        .correct-wrong--icons {
+                            .icon-checked {
+                                width: 32px;
+                                height: 32px;
+                            }
+                        }
+                    }
+
+
+                }
+            }
+
+            .btn-submit {
+                width: 100%;
+                height: 56px;
+                border: none;
+                outline: none;
+                background-color: $color-purple;
+                border-radius: 10px;
+                color: $color-white;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+            }
+        }
+
         
     }
 }

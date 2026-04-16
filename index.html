@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./app/assets/images/favicon-32x32.png">
 
     <link rel="stylesheet" href="./app/reset.css">
     <link rel="stylesheet" href="./app/style.css">
@@ -92,35 +93,76 @@
 
             <form class="form--answers">
                 <fieldset>
+
                     <ul class="answers-list">
+
                         <li class="answer-container">
-                            <input type="radio" id="answer-1" name="quiz" class="inp-checkbox">
-                            <label for="answer-1">4.5 : 1</label>
+                            <label for="answer-1" class="label--inp-radio">
+                                <div class="input-container">
+                                    <input type="radio" id="answer-1" name="quiz" class="inp-radio">
+                                    <span class="answer">4.5 : 1</span>
+                                </div>
+
+                                <div class="correct-wrong--icons">
+                                    <img class="icon-checked icon-correct display-none" src="./app/assets/images/icon-correct.svg" alt="#">
+                                    <img class="icon-checked icon-error display-none" src="./app/assets/images/icon-error.svg" alt="#">
+                                </div>
+                            </label>
                         </li>
 
                         <li class="answer-container">
-                            <input type="radio" id="answer-2" name="quiz" class="inp-checkbox">
-                            <label for="answer-2">3 : 1 </label>
+                            <label for="answer-2" class="label--inp-radio">
+                                <div class="input-container">
+                                    <input type="radio" id="answer-2" name="quiz" class="inp-radio">
+                                    <span class="answer">3 : 1 </span>
+                                </div>
+
+                                <div class="correct-wrong--icons">
+                                    <img class="icon-checked icon-correct display-none" src="./app/assets/images/icon-correct.svg" alt="#">
+                                    <img class="icon-checked icon-error display-none" src="./app/assets/images/icon-error.svg" alt="#">
+                                </div>
+                            </label>
                         </li>
 
                         <li class="answer-container">
-                            <input type="radio" id="answer-3" name="quiz" class="inp-checkbox">
-                            <label for="answer-3">2.5 : 1</label>
+                            <label for="answer-3" class="label--inp-radio">
+                                <div class="input-container">
+                                    <input type="radio" id="answer-3" name="quiz" class="inp-radio">
+                                    <span class="answer">2.5 : 1</span>
+                                </div>
+
+                                <div class="correct-wrong--icons">
+                                    <img class="icon-checked icon-correct display-none" src="./app/assets/images/icon-correct.svg" alt="#">
+                                    <img class="icon-checked icon-error display-none" src="./app/assets/images/icon-error.svg" alt="#">
+                                </div>
+                            </label>
                         </li>
 
                         <li class="answer-container">
-                            <input type="radio" id="answer-4" name="quiz" class="inp-checkbox">
-                            <label for="answer-4">5 : 1</label>
+                            <label for="answer-4" class="label--inp-radio">
+                                <div class="input-container">
+                                    <input type="radio" id="answer-4" name="quiz" class="inp-radio">
+                                    <span class="answer">2.5 : 1</span>
+                                </div>
+
+                                <div class="correct-wrong--icons">
+                                    <img class="icon-checked icon-correct display-none" src="./app/assets/images/icon-correct.svg" alt="#">
+                                    <img class="icon-checked icon-error display-none" src="./app/assets/images/icon-error.svg" alt="#">
+                                </div>
+                            </label>
                         </li>
+
                     </ul>
+
                 </fieldset>
 
-                <button type="submit" class="btn--submit-answer">
+                <button type="submit" class="btn--submit-answer btn-submit">
                     Submit Answer
-                </button>   
+                </button>
+                <button type="submit" class="btn--next-question btn-submit display-none">
+                    Next Question
+                </button>    
             </form>
-
-
             
         </section>
     </main>
