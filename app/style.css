@@ -25,11 +25,19 @@
   color: #FFFFFF;
   background-color: #313E51;
 }
-.style-dark-mode .sub-h {
+.style-dark-mode .sub-h, .style-dark-mode .question-counter, .style-dark-mode .questions-number {
   color: #EBF0FF !important;
 }
-.style-dark-mode .quiz-topic {
+.style-dark-mode .quiz-topic, .style-dark-mode .final-result {
   background-color: #3B4D66 !important;
+}
+.style-dark-mode .label--inp-radio {
+  background-color: #3B4D66 !important;
+  border: 3px solid #3B4D66 !important;
+}
+.style-dark-mode .label--inp-radio:has(.inp-radio:checked) {
+  border: 3px solid #A729F5 !important;
+  box-sizing: border-box;
 }
 
 body {

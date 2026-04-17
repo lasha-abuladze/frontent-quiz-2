@@ -69,13 +69,25 @@ $transition: all 0.3s;
     color: $color-white;
     background-color: $color-blue--900;
 
-    .sub-h {
+    .sub-h, .question-counter, .questions-number {
         color: $color-blue--50 !important;
     }
 
-    .quiz-topic {
+    .quiz-topic, .final-result {
         background-color: $color-blue--850 !important;
     }
+
+    .label--inp-radio {
+        background-color: $color-blue--850 !important;
+        border: 3px solid $color-blue--850 !important;
+
+        &:has(.inp-radio:checked) {
+            border: 3px solid $color-purple !important;
+            box-sizing: border-box;
+        }
+    }
+
+
 }
 
 
