@@ -224,6 +224,7 @@ body .main-section .section--question .answers-list .answer-container .label--in
   justify-content: space-between;
   border-radius: inherit;
   transition: all 0.2s;
+  cursor: pointer;
 }
 body .main-section .section--question .answers-list .answer-container .label--inp-radio:has(.inp-radio:checked) {
   border: 3px solid #A729F5;
@@ -367,6 +368,82 @@ body .main-section .section--quiz-completed .btn-submit {
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
+}
+
+@media (min-width: 740px) {
+  body .main-header .theme-toggle-container {
+    gap: 19px;
+  }
+  body .main-header .theme-toggle-container .icon-toggle {
+    width: 21px;
+    height: 21px;
+  }
+  body .main-header .theme-toggle-container .btn-theme-toggle {
+    width: 48px;
+    height: 28px;
+    border-radius: 20px;
+  }
+  body .main-header .theme-toggle-container .btn-theme-toggle .toggle-circle {
+    width: 20px;
+    height: 20px;
+  }
+  body .main-section {
+    margin-top: 56px;
+  }
+  body .main-section .section--start-menu header {
+    margin-bottom: 68px;
+  }
+  body .main-section .section--start-menu header h1 {
+    font-size: 50px;
+  }
+  body .main-section .section--start-menu header .sub-h {
+    font-size: 20px;
+  }
+  body .main-section .section--start-menu .quiz-topics-list {
+    gap: 24px;
+  }
+  body .main-section .section--start-menu .quiz-topics-list .quiz-topic {
+    gap: 34px;
+  }
+  body .main-section .section--start-menu .quiz-topics-list .quiz-topic .quiz-topic--name {
+    font-size: 22px;
+  }
+  body .main-section .section--start-menu .quiz-topics-list .quiz-topic .quiz-topic--icon {
+    width: 56px;
+    height: 56px;
+  }
+  body .main-section .section--start-menu .quiz-topics-list .quiz-topic .quiz-topic--icon img {
+    width: 35px;
+    height: 35px;
+  }
+  body .main-section .section--question header {
+    margin-bottom: 68px;
+  }
+  body .main-section .section--question header .question-counter {
+    font-size: 20px;
+  }
+  body .main-section .section--question header .question {
+    font-size: 22px;
+  }
+  body .main-section .section--question .answers-list {
+    margin-bottom: 32px;
+    gap: 24px;
+  }
+  body .main-section .section--question .answers-list .answer-container .label--inp-radio .input-container {
+    gap: 32px;
+  }
+  body .main-section .section--question .answers-list .answer-container .label--inp-radio .input-container .inp-radio {
+    width: 56px;
+    height: 56px;
+  }
+  body .main-section .section--question .answers-list .answer-container .label--inp-radio .correct-wrong--icons .icon-checked {
+    width: 40px;
+    height: 40px;
+  }
+  body .main-section .section--question .btn-submit {
+    height: 92px;
+    font-size: 20px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

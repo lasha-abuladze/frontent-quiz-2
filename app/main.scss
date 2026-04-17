@@ -306,6 +306,8 @@ body {
                         border-radius: inherit;
                         transition: all 0.2s;
 
+                        cursor: pointer;
+
                         &:has(.inp-radio:checked) {
                             border: 3px solid $color-purple;
                             box-sizing: border-box
@@ -480,5 +482,126 @@ body {
 
         }
         
+    }
+}
+
+
+
+@media (min-width: 740px) {
+
+    body {
+
+        .main-header {
+            .theme-toggle-container {
+                gap: 19px;
+
+                .icon-toggle {
+                    width: 21px;
+                    height: 21px;
+                }
+
+                .btn-theme-toggle {
+                    width: 48px;
+                    height: 28px;
+                    border-radius: 20px;
+
+                    .toggle-circle {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+        }
+
+        .main-section {
+            margin-top: 56px;
+
+            .section--start-menu {
+                header {
+                    margin-bottom: 68px;
+
+                    h1 {
+                        font-size: 50px;
+                    }
+
+                    .sub-h {
+                        font-size: 20px;
+                    }
+                }
+
+                .quiz-topics-list {
+                    gap: 24px;
+
+                    .quiz-topic {
+                        gap: 34px;
+
+                        .quiz-topic--name {
+                            font-size: 22px;
+                        }
+
+                        .quiz-topic--icon {
+                            width: 56px;
+                            height: 56px;
+
+                            img {
+                                width: 35px;
+                                height: 35px;
+                            }
+                        }
+                    }
+
+                }
+                
+            }
+
+            .section--question {
+
+                header {
+                    margin-bottom: 68px;
+
+                    .question-counter {
+                        font-size: 20px;
+                    }
+
+                    .question {
+                        font-size: 22px;
+                    }
+                }
+
+                .answers-list {
+                    margin-bottom: 32px;
+                    gap: 24px;
+
+                    .answer-container {
+
+                        .label--inp-radio {
+                            .input-container {
+                                gap: 32px;
+
+                                .inp-radio {
+                                    width: 56px;
+                                    height: 56px;
+                                }
+                            }
+
+                            .correct-wrong--icons {
+                                .icon-checked {
+                                    width: 40px;
+                                    height: 40px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .btn-submit {
+                    height: 92px;
+                    font-size: 20px;
+                }
+            }
+
+
+        }
+
     }
 }
