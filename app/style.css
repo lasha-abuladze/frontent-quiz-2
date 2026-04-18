@@ -13,7 +13,7 @@
   font-display: swap;
 }
 .display-none {
-  display: none;
+  display: none !important;
 }
 
 .toggle-circle--dark-mode {
@@ -320,6 +320,7 @@ body .main-section .section--quiz-completed .final-result {
   box-sizing: border-box;
   border-radius: 10px;
   margin-bottom: 16px;
+  transition: all 0.3s;
 }
 body .main-section .section--quiz-completed .final-result .final-result--topic {
   display: flex;
@@ -372,6 +373,9 @@ body .main-section .section--quiz-completed .btn-submit {
 }
 
 @media (min-width: 740px) {
+  body {
+    padding: 54px 64px;
+  }
   body .main-header .theme-toggle-container {
     gap: 19px;
   }
@@ -478,6 +482,78 @@ body .main-section .section--quiz-completed .btn-submit {
   body .main-section .section--quiz-completed .btn-submit {
     height: 92px;
     font-size: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    padding: 70px 50px;
+  }
+  body .main-header {
+    max-width: 1157px;
+  }
+  body .main-section {
+    max-width: 1157px;
+  }
+  body .main-section .section--start-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    align-items: start;
+  }
+  body .main-section .section--start-menu header {
+    margin: 0px;
+  }
+  body .main-section .section--start-menu header h1 {
+    font-size: 60px;
+  }
+  body .main-section .section--start-menu header .sub-h {
+    font-size: 24px;
+  }
+  body .main-section .section--start-menu .quiz-topics-list {
+    width: 564px;
+    gap: 16px;
+  }
+  body .main-section .section--question {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    align-items: start;
+  }
+  body .main-section .section--question header {
+    margin: 0;
+    max-width: 465px;
+  }
+  body .main-section .section--question header .question-counter {
+    font-size: 24px;
+  }
+  body .main-section .section--question header .question {
+    font-size: 26px;
+    line-height: 28px;
+    margin-bottom: 300px;
+  }
+  body .main-section .section--question .answers-list {
+    width: 564px;
+    gap: 16px;
+  }
+  body .main-section .section--quiz-completed {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    align-items: start;
+  }
+  body .main-section .section--quiz-completed h1 {
+    font-size: 60px;
+    margin: 0;
+  }
+  body .main-section .section--quiz-completed .final-result {
+    width: 564px;
+    height: 388px;
+  }
+  body .main-section .section--quiz-completed .final-result .final-result--topic span {
+    font-size: 26px;
   }
 }
 

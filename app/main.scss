@@ -56,7 +56,7 @@ $transition: all 0.3s;
 }
 
 .display-none {
-    display: none;
+    display: none !important;
 }
 
 .toggle-circle--dark-mode {
@@ -427,6 +427,7 @@ body {
                 box-sizing: border-box;
                 border-radius: 10px;
                 margin-bottom: 16px;
+                transition: $transition;
 
                 .final-result--topic {
                     @include flex-row();
@@ -491,6 +492,7 @@ body {
 @media (min-width: 740px) {
 
     body {
+        padding: 54px 64px;
 
         .main-header {
             .theme-toggle-container {
@@ -650,5 +652,92 @@ body {
 
         }
 
+    }
+}
+
+@media (min-width: 1200px) {
+
+    body {
+        padding: 70px 50px;
+
+        .main-header {
+            max-width: 1157px;
+        }
+
+        .main-section {
+            max-width: 1157px;
+
+            .section--start-menu {
+                @include flex-row();
+                justify-content: space-between;
+                align-items: start;
+
+                header {
+                    margin: 0px;
+
+                    h1 {
+                        font-size: 60px;
+                    }
+
+                    .sub-h {
+                        font-size: 24px;
+                    }
+                }
+
+                .quiz-topics-list {
+                    width: 564px;
+                    gap: 16px;
+                }
+            }
+
+            .section--question {
+                @include flex-row();
+                justify-content: space-between;
+                align-items: start;
+
+                header {
+                    margin: 0; 
+                    max-width: 465px;
+
+                    .question-counter {
+                        font-size: 24px;
+                    }
+
+                    .question {
+                        font-size: 26px;
+                        line-height: 28px;
+                        margin-bottom: 300px;
+                    }
+                }
+
+                .answers-list {
+                    width: 564px;
+                    gap: 16px;
+                }
+            }
+
+            .section--quiz-completed {
+                @include flex-row();
+                justify-content: space-between;
+                align-items: start;
+
+                h1 {
+                    font-size: 60px;
+                    margin: 0;
+                }
+
+                .final-result {
+                    width: 564px;
+                    height: 388px;
+
+                    .final-result--topic {
+                        span {
+                            font-size: 26px;
+                        }
+                    }
+                }
+            }
+
+        }
     }
 }
