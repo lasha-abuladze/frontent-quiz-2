@@ -430,6 +430,7 @@ body {
 
                 .final-result--topic {
                     @include flex-row();
+                    justify-content: center;
                     gap: 8px;
                     margin-bottom: 28px;
                     
@@ -592,6 +593,52 @@ body {
                             }
                         }
                     }
+                }
+
+                .btn-submit {
+                    height: 92px;
+                    font-size: 20px;
+                }
+            }
+
+            .section--quiz-completed {
+                h1 {
+                    font-size: 50px;
+                    margin-bottom: 50px;
+                }
+
+                .final-result {
+                    padding: 48px 80px;
+                    margin-bottom: 32px;
+
+                    .final-result--topic {
+                        gap: 25px;
+                        margin-bottom: 60px;
+
+                        .img-container {
+                            width: 56px;
+                            height: 56px;
+
+                            img {
+                                width: 35px;
+                                height: 35px;
+                            }
+                        }
+
+                        span {
+                            font-size: 22px;
+                        }
+                    }
+
+                    .final-scroe {
+                        font-size: 100px;
+                        margin-bottom: 50px;
+                    }
+
+                    .questions-number {
+                        font-size: 20px;
+                    }
+
                 }
 
                 .btn-submit {

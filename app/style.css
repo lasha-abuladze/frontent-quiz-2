@@ -325,6 +325,7 @@ body .main-section .section--quiz-completed .final-result .final-result--topic {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   margin-bottom: 28px;
 }
@@ -441,6 +442,40 @@ body .main-section .section--quiz-completed .btn-submit {
     height: 40px;
   }
   body .main-section .section--question .btn-submit {
+    height: 92px;
+    font-size: 20px;
+  }
+  body .main-section .section--quiz-completed h1 {
+    font-size: 50px;
+    margin-bottom: 50px;
+  }
+  body .main-section .section--quiz-completed .final-result {
+    padding: 48px 80px;
+    margin-bottom: 32px;
+  }
+  body .main-section .section--quiz-completed .final-result .final-result--topic {
+    gap: 25px;
+    margin-bottom: 60px;
+  }
+  body .main-section .section--quiz-completed .final-result .final-result--topic .img-container {
+    width: 56px;
+    height: 56px;
+  }
+  body .main-section .section--quiz-completed .final-result .final-result--topic .img-container img {
+    width: 35px;
+    height: 35px;
+  }
+  body .main-section .section--quiz-completed .final-result .final-result--topic span {
+    font-size: 22px;
+  }
+  body .main-section .section--quiz-completed .final-result .final-scroe {
+    font-size: 100px;
+    margin-bottom: 50px;
+  }
+  body .main-section .section--quiz-completed .final-result .questions-number {
+    font-size: 20px;
+  }
+  body .main-section .section--quiz-completed .btn-submit {
     height: 92px;
     font-size: 20px;
   }
