@@ -53,7 +53,7 @@ quizList.addEventListener(`click`, function(e) {
             }
         })
 
-        // questionsArr = quizData.questions;
+        questionsArr = quizData.questions;
 
         // console.log(questionsArr)
 
@@ -62,36 +62,36 @@ quizList.addEventListener(`click`, function(e) {
 
         //open quiz questions section
 
-        // sectionArr.forEach(el => {
-        //     if(!el.classList.contains(`display-none`)) {
-        //         el.classList.add(`display-none`);
-        //     }
-        // })
+        sectionArr.forEach(el => {
+            if(!el.classList.contains(`display-none`)) {
+                el.classList.add(`display-none`);
+            }
+        })
 
-        // sectionArr.forEach(el => {
-        //     if(el.classList.contains(`section--question`)) {
-        //         el.classList.remove(`display-none`);
-        //     }
-        // })
+        sectionArr.forEach(el => {
+            if(el.classList.contains(`section--question`)) {
+                el.classList.remove(`display-none`);
+            }
+        })
 
 
-        //// udate question index ui
+        // //// udate question index ui
         
-        // questionsTotalNumber.textContent = `${quizData.questions.length}`;
-        // questionCurrentIndex.textContent = `${questionIndex}`;
+        questionsTotalNumber.textContent = `${quizData.questions.length}`;
+        questionCurrentIndex.textContent = `${questionIndex}`;
 
-        // //// update question
-        // question.textContent = `${questionsArr[questionIndex - 1].question}`;
+        // update question
+        question.textContent = `${questionsArr[questionIndex - 1].question}`;
 
-        // /// update progressBar 
-        // progressBar.value = `${questionIndex}`;
+        /// update progressBar 
+        progressBar.value = `${questionIndex}`;
 
 
-        // /// update answers options
+        /// update answers options
 
-        // answersArr.forEach((el,i) => {
-        //     el.textContent = `${questionsArr[questionIndex - 1].options[i]}`;
-        // })
+        answersArr.forEach((el,i) => {
+            el.textContent = `${questionsArr[questionIndex - 1].options[i]}`;
+        })
 
 
 
