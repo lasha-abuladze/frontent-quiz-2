@@ -15,6 +15,16 @@ const progressBar = document.querySelector(`#quiz-progress`);
 const answersArr = document.querySelectorAll(`.answer`);
 
 
+const formBtns = document.querySelectorAll(`.form-btn`);
+const btnsubmitAnswer = document.querySelector(`.btn--submit-answer`);
+const btnNextQuestion = document.querySelector(`.btn--next-question`);
+
+const answersListContainer = document.querySelector(`.answers-list`);
+const answerLabels = document.querySelectorAll(`.label--inp-radio`);
+const iconsCheckedAnswers = document.querySelectorAll(`.icon-checked`);
+const inpRadioArr = document.querySelectorAll(`.inp-radio`);
+
+
 
 
 let quizTopicName;
@@ -22,7 +32,8 @@ let quizData;
 let questionsArr;
 
 let questionIndex = 1;
-// let questionsArr;
+let answerContainer;
+let chosenAnswer;
 
 ////  theme toggle
 btnThemeToggle.addEventListener(`click`, function() {
@@ -42,8 +53,6 @@ quizList.addEventListener(`click`, function(e) {
         quizTopicName = quizTopicContainer.querySelector(`.quiz-topic--name`).textContent;
     }
 
-    console.log(quizTopicName)
-
     fetch(`./app/data.json`).then(res => res.json()).then(data => {
 
         /// get selected quiz
@@ -54,10 +63,6 @@ quizList.addEventListener(`click`, function(e) {
         })
 
         questionsArr = quizData.questions;
-
-        // console.log(questionsArr)
-
-        console.log(quizData)
 
 
         //open quiz questions section
@@ -97,8 +102,42 @@ quizList.addEventListener(`click`, function(e) {
 
 
 
-        // console.log(questionsArr)
+        console.log(questionsArr)
         // console.log(quizData);
     })
     
 })
+
+
+answersListContainer.addEventListener(`click`, function(e) {
+
+    if(e.target.closest(`.label--inp-radio`)) {
+        answerContainer = e.target.closest(`.label--inp-radio`);
+        chosenAnswer = answerContainer.querySelector(`.answer`).textContent;
+
+        if (!answerContainer || e.target.tagName === 'INPUT') {
+            return;
+        }
+    }
+
+})
+
+
+btnsubmitAnswer.addEventListener(`click`, function(e) {
+    e.preventDefault();
+
+    console.log(chosenAnswer)
+
+    if(!chosenAnswer) alert(`you shood chose answer`);
+
+    if(chosenAnswer === questionsArr[questionIndex - 1].answer) {
+        answerContainer.style.border = `3px solid green`;
+        answerContainer.querySelector(`.icon-correct`).classList.remove(`display-none`);
+        inpRadioArr.forEach(el => el.disabled = true)
+        console.log(`hi`)
+    }
+
+
+
+})
+
