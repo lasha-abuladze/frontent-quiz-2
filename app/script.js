@@ -15,7 +15,7 @@ const progressBar = document.querySelector(`#quiz-progress`);
 const answersArr = document.querySelectorAll(`.answer`);
 
 
-const formBtns = document.querySelectorAll(`.form-btn`);
+const formBtns = document.querySelectorAll(`.btn--form`);
 const btnsubmitAnswer = document.querySelector(`.btn--submit-answer`);
 const btnNextQuestion = document.querySelector(`.btn--next-question`);
 
@@ -25,8 +25,6 @@ const iconsCheckedAnswers = document.querySelectorAll(`.icon-checked`);
 const inpRadioArr = document.querySelectorAll(`.inp-radio`);
 
 
-
-
 let quizTopicName;
 let quizData;
 let questionsArr;
@@ -34,6 +32,7 @@ let questionsArr;
 let questionIndex = 1;
 let answerContainer;
 let chosenAnswer;
+let correctAnswer;
 
 ////  theme toggle
 btnThemeToggle.addEventListener(`click`, function() {
@@ -98,6 +97,8 @@ quizList.addEventListener(`click`, function(e) {
             el.textContent = `${questionsArr[questionIndex - 1].options[i]}`;
         })
 
+        correctAnswer = questionsArr[questionIndex - 1].answer;
+
 
 
 
@@ -126,15 +127,30 @@ answersListContainer.addEventListener(`click`, function(e) {
 btnsubmitAnswer.addEventListener(`click`, function(e) {
     e.preventDefault();
 
-    console.log(chosenAnswer)
-
     if(!chosenAnswer) alert(`you shood chose answer`);
 
-    if(chosenAnswer === questionsArr[questionIndex - 1].answer) {
-        answerContainer.style.border = `3px solid green`;
+    if(chosenAnswer === correctAnswer) {
+        answerContainer.style.border = `3px solid #2FD887`;
         answerContainer.querySelector(`.icon-correct`).classList.remove(`display-none`);
+        answerContainer.querySelector(`.inp-radio`).classList.add(`inp-radio--correct`);
         inpRadioArr.forEach(el => el.disabled = true)
-        console.log(`hi`)
+        formBtns.forEach(el => el.classList.toggle(`display-none`));
+
+    }
+
+    if(chosenAnswer !== correctAnswer) {
+        answerContainer.style.border = `3px solid #EE5454`;
+        answerContainer.querySelector(`.icon-error`).classList.remove(`display-none`);
+        answerContainer.querySelector(`.inp-radio`).classList.add(`inp-radio--wrong`);
+        inpRadioArr.forEach(el => el.disabled = true);
+        formBtns.forEach(el => el.classList.toggle(`display-none`));
+
+
+        answersArr.forEach((el, i) => {
+            if(el.textContent === correctAnswer) {
+                answerLabels[i].querySelector(`.icon-correct`).classList.remove(`display-none`);
+            }
+        })
     }
 
 

@@ -318,6 +318,23 @@ body {
                             @include flex-row();
                             gap: 16px;
 
+                            .inp-radio--correct::after {
+                                background-color: $color-green !important;
+                            }
+
+                            .inp-radio--correct::before {
+                                color: $color-white !important;
+                            }
+
+                            .inp-radio--wrong::after {
+                                background-color: $color-red !important;
+                            }
+
+                            .inp-radio--wrong::before {
+                                color: $color-white !important;
+                            }
+                            
+
                             .inp-radio {
                                 width: 40px;
                                 height: 40px;
@@ -359,7 +376,7 @@ body {
                                 color: $color-white;
                             }
 
-                            #answer-1::before {
+                            .answer-1::before {
                                 content: "A";
                             }
 
