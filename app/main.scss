@@ -87,7 +87,6 @@ $transition: all 0.3s;
         }
     }
 
-
 }
 
 
@@ -291,6 +290,14 @@ body {
                 .answer-container {
                     width: 100%;
                     border-radius: 10px;
+
+                    .label--inp-radio--correct {
+                        border: 3px solid $color-green !important;
+                    }
+
+                    .label--inp-radio--wrong {
+                        border: 3px solid $color-red !important;
+                    }
 
                     .label--inp-radio {
                         display: block;

@@ -210,6 +210,12 @@ body .main-section .section--question .answers-list .answer-container {
   width: 100%;
   border-radius: 10px;
 }
+body .main-section .section--question .answers-list .answer-container .label--inp-radio--correct {
+  border: 3px solid #2FD887 !important;
+}
+body .main-section .section--question .answers-list .answer-container .label--inp-radio--wrong {
+  border: 3px solid #EE5454 !important;
+}
 body .main-section .section--question .answers-list .answer-container .label--inp-radio {
   display: block;
   width: 100%;

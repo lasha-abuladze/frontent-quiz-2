@@ -34,6 +34,8 @@ let answerContainer;
 let chosenAnswer;
 let correctAnswer;
 
+let finalScore = 0;
+
 ////  theme toggle
 btnThemeToggle.addEventListener(`click`, function() {
     themeCircle.classList.toggle(`toggle-circle--dark-mode`);
@@ -103,7 +105,7 @@ quizList.addEventListener(`click`, function(e) {
 
 
 
-        console.log(questionsArr)
+        // console.log(questionsArr)
         // console.log(quizData);
     })
     
@@ -127,33 +129,104 @@ answersListContainer.addEventListener(`click`, function(e) {
 btnsubmitAnswer.addEventListener(`click`, function(e) {
     e.preventDefault();
 
-    if(!chosenAnswer) alert(`you shood chose answer`);
+    if(!chosenAnswer) {
 
-    if(chosenAnswer === correctAnswer) {
-        answerContainer.style.border = `3px solid #2FD887`;
-        answerContainer.querySelector(`.icon-correct`).classList.remove(`display-none`);
-        answerContainer.querySelector(`.inp-radio`).classList.add(`inp-radio--correct`);
-        inpRadioArr.forEach(el => el.disabled = true)
-        formBtns.forEach(el => el.classList.toggle(`display-none`));
+     alert(`you shood chose answer`)
 
-    }
+    } else {
+        if(chosenAnswer === correctAnswer) {
+            answerContainer.classList.add(`label--inp-radio--correct`);
+            answerContainer.querySelector(`.icon-correct`).classList.remove(`display-none`);
+            answerContainer.querySelector(`.inp-radio`).classList.add(`inp-radio--correct`);
+            inpRadioArr.forEach(el => el.disabled = true)
+            formBtns.forEach(el => el.classList.toggle(`display-none`));
 
-    if(chosenAnswer !== correctAnswer) {
-        answerContainer.style.border = `3px solid #EE5454`;
-        answerContainer.querySelector(`.icon-error`).classList.remove(`display-none`);
-        answerContainer.querySelector(`.inp-radio`).classList.add(`inp-radio--wrong`);
-        inpRadioArr.forEach(el => el.disabled = true);
-        formBtns.forEach(el => el.classList.toggle(`display-none`));
+        }
 
+        if(chosenAnswer !== correctAnswer) {
+            answerContainer.classList.add(`label--inp-radio--wrong`);
+            answerContainer.querySelector(`.icon-error`).classList.remove(`display-none`);
+            answerContainer.querySelector(`.inp-radio`).classList.add(`inp-radio--wrong`);
+            inpRadioArr.forEach(el => el.disabled = true);
+            formBtns.forEach(el => el.classList.toggle(`display-none`));
 
-        answersArr.forEach((el, i) => {
-            if(el.textContent === correctAnswer) {
-                answerLabels[i].querySelector(`.icon-correct`).classList.remove(`display-none`);
-            }
-        })
+            answersArr.forEach((el, i) => {
+                if(el.textContent === correctAnswer) {
+                    answerLabels[i].querySelector(`.icon-correct`).classList.remove(`display-none`);
+                }
+            })
+        }
     }
 
 
 
 })
+
+
+btnNextQuestion.addEventListener(`click`, function(e) {
+    e.preventDefault();
+    
+    if((questionIndex) < quizData.questions.length) {
+
+        questionIndex++;
+        chosenAnswer = ``;
+
+        question.textContent = `${questionsArr[questionIndex - 1].question}`;
+        questionCurrentIndex.textContent = `${questionIndex}`;
+        progressBar.value = `${questionIndex}`;
+
+
+        answersArr.forEach((el,i) => {
+            el.textContent = `${questionsArr[questionIndex - 1].options[i]}`;
+        })
+
+
+        correctAnswer = questionsArr[questionIndex - 1].answer;
+
+
+
+        answerLabels.forEach(el => {
+            if(el.classList.contains(`label--inp-radio--correct`)) {
+                el.classList.remove(`label--inp-radio--correct`);
+            }
+        })
+
+        answerLabels.forEach(el => {
+            if(el.classList.contains(`label--inp-radio--wrong`)) {
+                el.classList.remove(`label--inp-radio--wrong`);
+            }
+        })
+
+
+
+        inpRadioArr.forEach(el => el.checked = false);
+        inpRadioArr.forEach(el => el.disabled = false);
+        iconsCheckedAnswers.forEach(el => {
+            if(!el.classList.contains(`display-none`)) {
+                el.classList.add(`display-none`)
+            }
+        })
+
+        inpRadioArr.forEach(el => {
+            if(el.classList.contains(`inp-radio--wrong`)) {
+                el.classList.remove(`inp-radio--wrong`)
+            }
+        })
+
+        inpRadioArr.forEach(el => {
+            if(el.classList.contains(`inp-radio--correct`)) {
+                el.classList.remove(`inp-radio--correct`)
+            }
+        })
+
+        formBtns.forEach(el => el.classList.toggle(`display-none`));
+
+    } else {
+        alert(`quiz ended`)
+    }
+
+})
+
+
+
 
