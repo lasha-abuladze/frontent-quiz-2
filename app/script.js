@@ -27,6 +27,7 @@ const inpRadioArr = document.querySelectorAll(`.inp-radio`);
 const finalScoreHTML = document.querySelector(`.final-scroe`);
 const quizLogo = document.querySelector(`.quiz-logo`);
 const quizName = document.querySelector(`.quiz-name`);
+const btnPlayAgain = document.querySelector(`.btn--play-again`);
 
 
 
@@ -246,7 +247,7 @@ btnNextQuestion.addEventListener(`click`, function(e) {
         if(quizData.title === `HTML`) {
             imgContainer.style.backgroundColor = `#FFF5ED`;
         } else if(quizData.title === `CSS`) {
-            imgContainer.style.backgroundColor = `#2FD887`;
+            imgContainer.style.backgroundColor = `#E0FDEF`;
         } else if(quizData.title === `Javascript`) {
             imgContainer.style.backgroundColor = `#EBF0FF`;
         } else if(quizData.title === `Accessibility`) {
@@ -255,6 +256,59 @@ btnNextQuestion.addEventListener(`click`, function(e) {
 
     }
 
+})
+
+btnPlayAgain.addEventListener(`click`, function(e) {
+    e.preventDefault();
+
+    questionIndex = 1;
+    finalScore = 0;
+
+    sectionArr.forEach(el => {
+        if(!el.classList.contains(`display-none`)) {
+            el.classList.add(`display-none`);
+        }
+    });
+
+    sectionArr.forEach(el => {
+        if(el.classList.contains(`section--start-menu`)) {
+            el.classList.remove(`display-none`);
+        }
+    })
+
+    inpRadioArr.forEach(el => {
+        if(el.classList.contains(`inp-radio--wrong`)) {
+            el.classList.remove(`inp-radio--wrong`)
+        }
+    })
+
+    inpRadioArr.forEach(el => {
+        if(el.classList.contains(`inp-radio--correct`)) {
+            el.classList.remove(`inp-radio--correct`)
+        }
+    })
+
+    iconsCheckedAnswers.forEach(el => {
+        if(!el.classList.contains(`display-none`)) {
+            el.classList.add(`display-none`)
+        }
+    })
+
+    answerLabels.forEach(el => {
+        if(el.classList.contains(`label--inp-radio--correct`)) {
+            el.classList.remove(`label--inp-radio--correct`);
+        }
+    })
+
+    answerLabels.forEach(el => {
+        if(el.classList.contains(`label--inp-radio--wrong`)) {
+            el.classList.remove(`label--inp-radio--wrong`);
+        }
+    })
+
+    inpRadioArr.forEach(el => el.checked = false);
+    inpRadioArr.forEach(el => el.disabled = false);
+    formBtns.forEach(el => el.classList.toggle(`display-none`));
 })
 
 
