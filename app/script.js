@@ -24,6 +24,11 @@ const answerLabels = document.querySelectorAll(`.label--inp-radio`);
 const iconsCheckedAnswers = document.querySelectorAll(`.icon-checked`);
 const inpRadioArr = document.querySelectorAll(`.inp-radio`);
 
+const finalScoreHTML = document.querySelector(`.final-scroe`);
+const quizLogo = document.querySelector(`.quiz-logo`);
+const quizName = document.querySelector(`.quiz-name`);
+
+
 
 let quizTopicName;
 let quizData;
@@ -101,12 +106,7 @@ quizList.addEventListener(`click`, function(e) {
 
         correctAnswer = questionsArr[questionIndex - 1].answer;
 
-
-
-
-
-        // console.log(questionsArr)
-        // console.log(quizData);
+        console.log(quizData.icon);
     })
     
 })
@@ -140,6 +140,7 @@ btnsubmitAnswer.addEventListener(`click`, function(e) {
             answerContainer.querySelector(`.inp-radio`).classList.add(`inp-radio--correct`);
             inpRadioArr.forEach(el => el.disabled = true)
             formBtns.forEach(el => el.classList.toggle(`display-none`));
+            finalScore++;
 
         }
 
@@ -222,7 +223,36 @@ btnNextQuestion.addEventListener(`click`, function(e) {
         formBtns.forEach(el => el.classList.toggle(`display-none`));
 
     } else {
-        alert(`quiz ended`)
+
+        sectionArr.forEach(el => {
+            if(!el.classList.contains(`display-none`)) {
+                el.classList.add(`display-none`);
+            }
+        });
+
+        sectionArr.forEach(el => {
+            if(el.classList.contains(`section--quiz-completed`)) {
+                el.classList.remove(`display-none`);
+            }
+        })
+
+        finalScoreHTML.textContent = `${finalScore}`;
+
+        const quizLogoLink = quizData.icon;
+        const imgContainer = document.querySelector(`.img-container`);
+        quizLogo.src = `${quizLogoLink}`;
+        quizName.textContent = quizData.title;
+
+        if(quizData.title === `HTML`) {
+            imgContainer.style.backgroundColor = `#FFF5ED`;
+        } else if(quizData.title === `CSS`) {
+            imgContainer.style.backgroundColor = `#2FD887`;
+        } else if(quizData.title === `Javascript`) {
+            imgContainer.style.backgroundColor = `#EBF0FF`;
+        } else if(quizData.title === `Accessibility`) {
+            imgContainer.style.backgroundColor = `#F6E7FF`;
+        }
+
     }
 
 })
