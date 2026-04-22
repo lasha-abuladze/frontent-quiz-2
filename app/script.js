@@ -31,286 +31,316 @@ const btnPlayAgain = document.querySelector(`.btn--play-again`);
 
 
 
-let quizTopicName;
-let quizData;
-let questionsArr;
+// let quizTopicName;
+// let quizData;
+// let questionsArr;
 
-let questionIndex = 1;
+// let questionIndex = 1;
 let answerContainer;
 let chosenAnswer;
 let correctAnswer;
 
 let finalScore = 0;
 
-////  theme toggle
-btnThemeToggle.addEventListener(`click`, function() {
-    themeCircle.classList.toggle(`toggle-circle--dark-mode`);
-    iconToggleArr.forEach(el => el.classList.toggle(`display-none`));
-    body.classList.toggle(`style-dark-mode`);
-})
+
+// answersListContainer.addEventListener(`click`, function(e) {
+
+//     if(e.target.closest(`.label--inp-radio`)) {
+//         answerContainer = e.target.closest(`.label--inp-radio`);
+//         chosenAnswer = answerContainer.querySelector(`.answer`).textContent;
+
+//         if (!answerContainer || e.target.tagName === 'INPUT') {
+//             return;
+//         }
+//     }
+
+// })
+
+
+// btnsubmitAnswer.addEventListener(`click`, function(e) {
+//     e.preventDefault();
+
+//     if(!chosenAnswer) {
+
+//      alert(`you shood chose answer`)
+
+//     } else {
+//         if(chosenAnswer === correctAnswer) {
+//             answerContainer.classList.add(`label--inp-radio--correct`);
+//             answerContainer.querySelector(`.icon-correct`).classList.remove(`display-none`);
+//             answerContainer.querySelector(`.inp-radio`).classList.add(`inp-radio--correct`);
+//             inpRadioArr.forEach(el => el.disabled = true)
+//             formBtns.forEach(el => el.classList.toggle(`display-none`));
+//             finalScore++;
+
+//         }
+
+//         if(chosenAnswer !== correctAnswer) {
+//             answerContainer.classList.add(`label--inp-radio--wrong`);
+//             answerContainer.querySelector(`.icon-error`).classList.remove(`display-none`);
+//             answerContainer.querySelector(`.inp-radio`).classList.add(`inp-radio--wrong`);
+//             inpRadioArr.forEach(el => el.disabled = true);
+//             formBtns.forEach(el => el.classList.toggle(`display-none`));
+
+//             answersArr.forEach((el, i) => {
+//                 if(el.textContent === correctAnswer) {
+//                     answerLabels[i].querySelector(`.icon-correct`).classList.remove(`display-none`);
+//                 }
+//             })
+//         }
+//     }
+
+
+
+// })
+
+
+// btnNextQuestion.addEventListener(`click`, function(e) {
+//     e.preventDefault();
+    
+//     if((questionIndex) < quizData.questions.length) {
+
+//         questionIndex++;
+//         chosenAnswer = ``;
+
+//         question.textContent = `${questionsArr[questionIndex - 1].question}`;
+//         questionCurrentIndex.textContent = `${questionIndex}`;
+//         progressBar.value = `${questionIndex}`;
+
+
+//         answersArr.forEach((el,i) => {
+//             el.textContent = `${questionsArr[questionIndex - 1].options[i]}`;
+//         })
+
+
+//         correctAnswer = questionsArr[questionIndex - 1].answer;
+
+
+
+//         answerLabels.forEach(el => {
+//             if(el.classList.contains(`label--inp-radio--correct`)) {
+//                 el.classList.remove(`label--inp-radio--correct`);
+//             }
+//         })
+
+//         answerLabels.forEach(el => {
+//             if(el.classList.contains(`label--inp-radio--wrong`)) {
+//                 el.classList.remove(`label--inp-radio--wrong`);
+//             }
+//         })
+
+
+
+//         inpRadioArr.forEach(el => el.checked = false);
+//         inpRadioArr.forEach(el => el.disabled = false);
+//         iconsCheckedAnswers.forEach(el => {
+//             if(!el.classList.contains(`display-none`)) {
+//                 el.classList.add(`display-none`)
+//             }
+//         })
+
+//         inpRadioArr.forEach(el => {
+//             if(el.classList.contains(`inp-radio--wrong`)) {
+//                 el.classList.remove(`inp-radio--wrong`)
+//             }
+//         })
+
+//         inpRadioArr.forEach(el => {
+//             if(el.classList.contains(`inp-radio--correct`)) {
+//                 el.classList.remove(`inp-radio--correct`)
+//             }
+//         })
+
+//         formBtns.forEach(el => el.classList.toggle(`display-none`));
+
+//     } else {
+
+//         sectionArr.forEach(el => {
+//             if(!el.classList.contains(`display-none`)) {
+//                 el.classList.add(`display-none`);
+//             }
+//         });
+
+//         sectionArr.forEach(el => {
+//             if(el.classList.contains(`section--quiz-completed`)) {
+//                 el.classList.remove(`display-none`);
+//             }
+//         })
+
+//         finalScoreHTML.textContent = `${finalScore}`;
+
+//         const quizLogoLink = quizData.icon;
+//         const imgContainer = document.querySelector(`.img-container`);
+//         quizLogo.src = `${quizLogoLink}`;
+//         quizName.textContent = quizData.title;
+
+//         if(quizData.title === `HTML`) {
+//             imgContainer.style.backgroundColor = `#FFF5ED`;
+//         } else if(quizData.title === `CSS`) {
+//             imgContainer.style.backgroundColor = `#E0FDEF`;
+//         } else if(quizData.title === `Javascript`) {
+//             imgContainer.style.backgroundColor = `#EBF0FF`;
+//         } else if(quizData.title === `Accessibility`) {
+//             imgContainer.style.backgroundColor = `#F6E7FF`;
+//         }
+
+//     }
+
+// })
+
+
+
+// btnPlayAgain.addEventListener(`click`, function(e) {
+//     e.preventDefault();
+
+//     questionIndex = 1;
+//     finalScore = 0;
+
+//     sectionArr.forEach(el => {
+//         if(!el.classList.contains(`display-none`)) {
+//             el.classList.add(`display-none`);
+//         }
+//     });
+
+//     sectionArr.forEach(el => {
+//         if(el.classList.contains(`section--start-menu`)) {
+//             el.classList.remove(`display-none`);
+//         }
+//     })
+
+//     inpRadioArr.forEach(el => {
+//         if(el.classList.contains(`inp-radio--wrong`)) {
+//             el.classList.remove(`inp-radio--wrong`)
+//         }
+//     })
+
+//     inpRadioArr.forEach(el => {
+//         if(el.classList.contains(`inp-radio--correct`)) {
+//             el.classList.remove(`inp-radio--correct`)
+//         }
+//     })
+
+//     iconsCheckedAnswers.forEach(el => {
+//         if(!el.classList.contains(`display-none`)) {
+//             el.classList.add(`display-none`)
+//         }
+//     })
+
+//     answerLabels.forEach(el => {
+//         if(el.classList.contains(`label--inp-radio--correct`)) {
+//             el.classList.remove(`label--inp-radio--correct`);
+//         }
+//     })
+
+//     answerLabels.forEach(el => {
+//         if(el.classList.contains(`label--inp-radio--wrong`)) {
+//             el.classList.remove(`label--inp-radio--wrong`);
+//         }
+//     })
+
+//     inpRadioArr.forEach(el => el.checked = false);
+//     inpRadioArr.forEach(el => el.disabled = false);
+//     formBtns.forEach(el => el.classList.toggle(`display-none`));
+// })
 
 
 
 
-quizList.addEventListener(`click`, function(e) {
 
-    // /// get selected quiz name
-    if(e.target.closest(`.quiz-topic`)) {
-        const quizTopicContainer = e.target.closest(`.quiz-topic`);
-        quizTopicName = quizTopicContainer.querySelector(`.quiz-topic--name`).textContent;
+class AppQuiz {
+
+    #quizTopicName;
+    #quizData;
+    #questionsArr;
+    #questionIndex = 1;
+
+    constructor(){
+        this.#themeToggle();
+        this.#displayQuiz();
     }
 
-    fetch(`./app/data.json`).then(res => res.json()).then(data => {
+    //// theme toggle function
+    #themeToggle() {
+        btnThemeToggle.addEventListener(`click`, function() {
+            themeCircle.classList.toggle(`toggle-circle--dark-mode`);
+            iconToggleArr.forEach(el => el.classList.toggle(`display-none`));
+            body.classList.toggle(`style-dark-mode`);
+        })
+    }
 
-        /// get selected quiz
+
+    /// main function to get a data and display quiz
+    #displayQuiz() {
+
+        quizList.addEventListener(`click`, (e) => {
+
+            if(e.target.closest(`.quiz-topic`)) {
+                const quizTopicContainer = e.target.closest(`.quiz-topic`);
+                if(!quizTopicContainer) return;
+                this.#quizTopicName = quizTopicContainer.querySelector(`.quiz-topic--name`).textContent;
+            }
+
+            this.#getQuizData();
+            this.#hideSection();
+            this.#openCurrentSection(`section--question`);
+        })
+    }
+
+    ///  get quiz data
+    #getQuizData() {
+
+        fetch(`./app/data.json`).then(res => res.json()).then(data => {
+            this.#getSelectedQuizData(data);
+        })
+    }
+
+    // get selected quiz 
+    #getSelectedQuizData(data) {
+
         data.quizzes.forEach(el => {
-            if(el.title === quizTopicName) {
-                quizData = el
+            if(el.title === this.#quizTopicName) {
+                this.#quizData = el;
             }
         })
 
-        questionsArr = quizData.questions;
+        this.#questionsArr = this.#quizData.questions;
+        this.#updateQuestionUI();
+        this.#updateOptionsList();
+    }
 
 
-        //open quiz questions section
 
+
+    #updateQuestionUI() {
+        questionsTotalNumber.textContent = `${this.#quizData.questions.length}`;
+        questionCurrentIndex.textContent = `${this.#questionIndex}`;
+        question.textContent = `${this.#questionsArr[this.#questionIndex - 1].question}`;
+        progressBar.value = `${this.#questionIndex}`;
+    }
+
+    #updateOptionsList() {
+        answersArr.forEach((el,i) => {
+            el.textContent = `${this.#questionsArr[this.#questionIndex - 1].options[i]}`;
+        })
+    }
+
+    #hideSection() {
         sectionArr.forEach(el => {
             if(!el.classList.contains(`display-none`)) {
                 el.classList.add(`display-none`);
             }
         })
+    }
 
+    #openCurrentSection(sectionClassName) {
         sectionArr.forEach(el => {
-            if(el.classList.contains(`section--question`)) {
+            if(el.classList.contains(`${sectionClassName}`)) {
                 el.classList.remove(`display-none`);
             }
         })
-
-
-        // //// udate question index ui
-        
-        questionsTotalNumber.textContent = `${quizData.questions.length}`;
-        questionCurrentIndex.textContent = `${questionIndex}`;
-
-        // update question
-        question.textContent = `${questionsArr[questionIndex - 1].question}`;
-
-        /// update progressBar 
-        progressBar.value = `${questionIndex}`;
-
-
-        /// update answers options
-
-        answersArr.forEach((el,i) => {
-            el.textContent = `${questionsArr[questionIndex - 1].options[i]}`;
-        })
-
-        correctAnswer = questionsArr[questionIndex - 1].answer;
-
-        console.log(quizData.icon);
-    })
-    
-})
-
-
-answersListContainer.addEventListener(`click`, function(e) {
-
-    if(e.target.closest(`.label--inp-radio`)) {
-        answerContainer = e.target.closest(`.label--inp-radio`);
-        chosenAnswer = answerContainer.querySelector(`.answer`).textContent;
-
-        if (!answerContainer || e.target.tagName === 'INPUT') {
-            return;
-        }
-    }
-
-})
-
-
-btnsubmitAnswer.addEventListener(`click`, function(e) {
-    e.preventDefault();
-
-    if(!chosenAnswer) {
-
-     alert(`you shood chose answer`)
-
-    } else {
-        if(chosenAnswer === correctAnswer) {
-            answerContainer.classList.add(`label--inp-radio--correct`);
-            answerContainer.querySelector(`.icon-correct`).classList.remove(`display-none`);
-            answerContainer.querySelector(`.inp-radio`).classList.add(`inp-radio--correct`);
-            inpRadioArr.forEach(el => el.disabled = true)
-            formBtns.forEach(el => el.classList.toggle(`display-none`));
-            finalScore++;
-
-        }
-
-        if(chosenAnswer !== correctAnswer) {
-            answerContainer.classList.add(`label--inp-radio--wrong`);
-            answerContainer.querySelector(`.icon-error`).classList.remove(`display-none`);
-            answerContainer.querySelector(`.inp-radio`).classList.add(`inp-radio--wrong`);
-            inpRadioArr.forEach(el => el.disabled = true);
-            formBtns.forEach(el => el.classList.toggle(`display-none`));
-
-            answersArr.forEach((el, i) => {
-                if(el.textContent === correctAnswer) {
-                    answerLabels[i].querySelector(`.icon-correct`).classList.remove(`display-none`);
-                }
-            })
-        }
     }
 
 
+}
 
-})
-
-
-btnNextQuestion.addEventListener(`click`, function(e) {
-    e.preventDefault();
-    
-    if((questionIndex) < quizData.questions.length) {
-
-        questionIndex++;
-        chosenAnswer = ``;
-
-        question.textContent = `${questionsArr[questionIndex - 1].question}`;
-        questionCurrentIndex.textContent = `${questionIndex}`;
-        progressBar.value = `${questionIndex}`;
-
-
-        answersArr.forEach((el,i) => {
-            el.textContent = `${questionsArr[questionIndex - 1].options[i]}`;
-        })
-
-
-        correctAnswer = questionsArr[questionIndex - 1].answer;
-
-
-
-        answerLabels.forEach(el => {
-            if(el.classList.contains(`label--inp-radio--correct`)) {
-                el.classList.remove(`label--inp-radio--correct`);
-            }
-        })
-
-        answerLabels.forEach(el => {
-            if(el.classList.contains(`label--inp-radio--wrong`)) {
-                el.classList.remove(`label--inp-radio--wrong`);
-            }
-        })
-
-
-
-        inpRadioArr.forEach(el => el.checked = false);
-        inpRadioArr.forEach(el => el.disabled = false);
-        iconsCheckedAnswers.forEach(el => {
-            if(!el.classList.contains(`display-none`)) {
-                el.classList.add(`display-none`)
-            }
-        })
-
-        inpRadioArr.forEach(el => {
-            if(el.classList.contains(`inp-radio--wrong`)) {
-                el.classList.remove(`inp-radio--wrong`)
-            }
-        })
-
-        inpRadioArr.forEach(el => {
-            if(el.classList.contains(`inp-radio--correct`)) {
-                el.classList.remove(`inp-radio--correct`)
-            }
-        })
-
-        formBtns.forEach(el => el.classList.toggle(`display-none`));
-
-    } else {
-
-        sectionArr.forEach(el => {
-            if(!el.classList.contains(`display-none`)) {
-                el.classList.add(`display-none`);
-            }
-        });
-
-        sectionArr.forEach(el => {
-            if(el.classList.contains(`section--quiz-completed`)) {
-                el.classList.remove(`display-none`);
-            }
-        })
-
-        finalScoreHTML.textContent = `${finalScore}`;
-
-        const quizLogoLink = quizData.icon;
-        const imgContainer = document.querySelector(`.img-container`);
-        quizLogo.src = `${quizLogoLink}`;
-        quizName.textContent = quizData.title;
-
-        if(quizData.title === `HTML`) {
-            imgContainer.style.backgroundColor = `#FFF5ED`;
-        } else if(quizData.title === `CSS`) {
-            imgContainer.style.backgroundColor = `#E0FDEF`;
-        } else if(quizData.title === `Javascript`) {
-            imgContainer.style.backgroundColor = `#EBF0FF`;
-        } else if(quizData.title === `Accessibility`) {
-            imgContainer.style.backgroundColor = `#F6E7FF`;
-        }
-
-    }
-
-})
-
-btnPlayAgain.addEventListener(`click`, function(e) {
-    e.preventDefault();
-
-    questionIndex = 1;
-    finalScore = 0;
-
-    sectionArr.forEach(el => {
-        if(!el.classList.contains(`display-none`)) {
-            el.classList.add(`display-none`);
-        }
-    });
-
-    sectionArr.forEach(el => {
-        if(el.classList.contains(`section--start-menu`)) {
-            el.classList.remove(`display-none`);
-        }
-    })
-
-    inpRadioArr.forEach(el => {
-        if(el.classList.contains(`inp-radio--wrong`)) {
-            el.classList.remove(`inp-radio--wrong`)
-        }
-    })
-
-    inpRadioArr.forEach(el => {
-        if(el.classList.contains(`inp-radio--correct`)) {
-            el.classList.remove(`inp-radio--correct`)
-        }
-    })
-
-    iconsCheckedAnswers.forEach(el => {
-        if(!el.classList.contains(`display-none`)) {
-            el.classList.add(`display-none`)
-        }
-    })
-
-    answerLabels.forEach(el => {
-        if(el.classList.contains(`label--inp-radio--correct`)) {
-            el.classList.remove(`label--inp-radio--correct`);
-        }
-    })
-
-    answerLabels.forEach(el => {
-        if(el.classList.contains(`label--inp-radio--wrong`)) {
-            el.classList.remove(`label--inp-radio--wrong`);
-        }
-    })
-
-    inpRadioArr.forEach(el => el.checked = false);
-    inpRadioArr.forEach(el => el.disabled = false);
-    formBtns.forEach(el => el.classList.toggle(`display-none`));
-})
-
-
-
-
+const quiz = new AppQuiz();
