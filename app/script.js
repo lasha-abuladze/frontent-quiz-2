@@ -5,7 +5,6 @@ const themeCircle = document.querySelector(`.toggle-circle`);
 const iconToggleArr = document.querySelectorAll(`.icon-toggle`);
 const body = document.querySelector(`body`);
 
-
 const quizList = document.querySelector(`.quiz-topics-list`);
 const sectionArr = document.querySelectorAll(`.section`);
 const questionsTotalNumber = document.querySelector(`.total-count`);
@@ -13,7 +12,6 @@ const questionCurrentIndex = document.querySelector(`.current-index`);
 const question = document.querySelector(`.question`);
 const progressBar = document.querySelector(`#quiz-progress`);
 const answersArr = document.querySelectorAll(`.answer`);
-
 
 const formBtns = document.querySelectorAll(`.btn--form`);
 const btnsubmitAnswer = document.querySelector(`.btn--submit-answer`);
@@ -28,156 +26,6 @@ const finalScoreHTML = document.querySelector(`.final-scroe`);
 const quizLogo = document.querySelector(`.quiz-logo`);
 const quizName = document.querySelector(`.quiz-name`);
 const btnPlayAgain = document.querySelector(`.btn--play-again`);
-
-
-// btnNextQuestion.addEventListener(`click`, function(e) {
-//     e.preventDefault();
-    
-//     if((questionIndex) < quizData.questions.length) {
-
-//         questionIndex++;
-//         chosenAnswer = ``;
-
-//         question.textContent = `${questionsArr[questionIndex - 1].question}`;
-//         questionCurrentIndex.textContent = `${questionIndex}`;
-//         progressBar.value = `${questionIndex}`;
-
-
-//         answersArr.forEach((el,i) => {
-//             el.textContent = `${questionsArr[questionIndex - 1].options[i]}`;
-//         })
-
-
-//         correctAnswer = questionsArr[questionIndex - 1].answer;
-
-
-
-//         answerLabels.forEach(el => {
-//             if(el.classList.contains(`label--inp-radio--correct`)) {
-//                 el.classList.remove(`label--inp-radio--correct`);
-//             }
-//         })
-
-//         answerLabels.forEach(el => {
-//             if(el.classList.contains(`label--inp-radio--wrong`)) {
-//                 el.classList.remove(`label--inp-radio--wrong`);
-//             }
-//         })
-
-
-
-//         inpRadioArr.forEach(el => el.checked = false);
-//         inpRadioArr.forEach(el => el.disabled = false);
-//         iconsCheckedAnswers.forEach(el => {
-//             if(!el.classList.contains(`display-none`)) {
-//                 el.classList.add(`display-none`)
-//             }
-//         })
-
-//         inpRadioArr.forEach(el => {
-//             if(el.classList.contains(`inp-radio--wrong`)) {
-//                 el.classList.remove(`inp-radio--wrong`)
-//             }
-//         })
-
-//         inpRadioArr.forEach(el => {
-//             if(el.classList.contains(`inp-radio--correct`)) {
-//                 el.classList.remove(`inp-radio--correct`)
-//             }
-//         })
-
-//         formBtns.forEach(el => el.classList.toggle(`display-none`));
-
-//     } else {
-
-//         sectionArr.forEach(el => {
-//             if(!el.classList.contains(`display-none`)) {
-//                 el.classList.add(`display-none`);
-//             }
-//         });
-
-//         sectionArr.forEach(el => {
-//             if(el.classList.contains(`section--quiz-completed`)) {
-//                 el.classList.remove(`display-none`);
-//             }
-//         })
-
-//         finalScoreHTML.textContent = `${finalScore}`;
-
-//         const quizLogoLink = quizData.icon;
-//         const imgContainer = document.querySelector(`.img-container`);
-//         quizLogo.src = `${quizLogoLink}`;
-//         quizName.textContent = quizData.title;
-
-//         if(quizData.title === `HTML`) {
-//             imgContainer.style.backgroundColor = `#FFF5ED`;
-//         } else if(quizData.title === `CSS`) {
-//             imgContainer.style.backgroundColor = `#E0FDEF`;
-//         } else if(quizData.title === `Javascript`) {
-//             imgContainer.style.backgroundColor = `#EBF0FF`;
-//         } else if(quizData.title === `Accessibility`) {
-//             imgContainer.style.backgroundColor = `#F6E7FF`;
-//         }
-
-//     }
-
-// })
-
-
-
-// btnPlayAgain.addEventListener(`click`, function(e) {
-//     e.preventDefault();
-
-//     questionIndex = 1;
-//     finalScore = 0;
-
-//     sectionArr.forEach(el => {
-//         if(!el.classList.contains(`display-none`)) {
-//             el.classList.add(`display-none`);
-//         }
-//     });
-
-//     sectionArr.forEach(el => {
-//         if(el.classList.contains(`section--start-menu`)) {
-//             el.classList.remove(`display-none`);
-//         }
-//     })
-
-//     inpRadioArr.forEach(el => {
-//         if(el.classList.contains(`inp-radio--wrong`)) {
-//             el.classList.remove(`inp-radio--wrong`)
-//         }
-//     })
-
-//     inpRadioArr.forEach(el => {
-//         if(el.classList.contains(`inp-radio--correct`)) {
-//             el.classList.remove(`inp-radio--correct`)
-//         }
-//     })
-
-//     iconsCheckedAnswers.forEach(el => {
-//         if(!el.classList.contains(`display-none`)) {
-//             el.classList.add(`display-none`)
-//         }
-//     })
-
-//     answerLabels.forEach(el => {
-//         if(el.classList.contains(`label--inp-radio--correct`)) {
-//             el.classList.remove(`label--inp-radio--correct`);
-//         }
-//     })
-
-//     answerLabels.forEach(el => {
-//         if(el.classList.contains(`label--inp-radio--wrong`)) {
-//             el.classList.remove(`label--inp-radio--wrong`);
-//         }
-//     })
-
-//     inpRadioArr.forEach(el => el.checked = false);
-//     inpRadioArr.forEach(el => el.disabled = false);
-//     formBtns.forEach(el => el.classList.toggle(`display-none`));
-// })
-
 
 
 
@@ -197,6 +45,8 @@ class AppQuiz {
         this.#themeToggle();
         this.#displayQuiz();
         this.#submitAnswer();
+        this.#displayNextQuestion();
+        this.#playAgain();
     }
 
     //// theme toggle function
@@ -314,10 +164,106 @@ class AppQuiz {
         })
     }
 
+    #displayNextQuestion() {
+
+        btnNextQuestion.addEventListener(`click`, (e) => {
+            e.preventDefault();
+
+            if(this.#questionIndex < this.#questionsArr.length) {
+
+                this.#questionIndex++;
+                this.#selectedAnswer = ``;
+
+                this.#updateQuestionUI();
+                this.#updateOptionsList();
+                this.#resetLabels();
+                this.#toggleFormBtns();
+
+            } else {
+                this.#hideSection();
+                this.#opensection(`section--quiz-completed`);
+
+                finalScoreHTML.textContent = `${this.#finalScore}`;
+
+                const quizLogoLink = this.#quizData.icon;
+                const imgContainer = document.querySelector(`.img-container`);
+                quizLogo.src = `${quizLogoLink}`;
+                quizName.textContent = this.#quizData.title;
+
+                if(this.#quizData.title === `HTML`) {
+                    imgContainer.style.backgroundColor = `#FFF5ED`;
+                } else if(this.#quizData.title === `CSS`) {
+                    imgContainer.style.backgroundColor = `#E0FDEF`;
+                } else if(this.#quizData.title === `Javascript`) {
+                    imgContainer.style.backgroundColor = `#EBF0FF`;
+                } else if(this.#quizData.title === `Accessibility`) {
+                    imgContainer.style.backgroundColor = `#F6E7FF`;
+                }
+            }
+        })
+    }
+
+    #playAgain() {
+        btnPlayAgain.addEventListener(`click`, (e) => {
+            e.preventDefault();
+            this.#questionIndex = 1;
+            this.#finalScore = 0;
+
+            this.#hideSection();
+            this.#opensection(`section--start-menu`);
+            this.#resetLabels();
+            this.#toggleFormBtns();
+        })
+    }
+    
     /// update input behavior and form buttons.
     #updateFormState() {
         inpRadioArr.forEach(el => el.disabled = true);
+        this.#toggleFormBtns();
+    }
+
+    #toggleFormBtns() {
         formBtns.forEach(el => el.classList.toggle(`display-none`));
+    }
+
+    #resetLabels() {
+        answerLabels.forEach(el => {
+            if(el.classList.contains(`label--inp-radio--correct`)) {
+                el.classList.remove(`label--inp-radio--correct`);
+            }
+        })
+
+        answerLabels.forEach(el => {
+            if(el.classList.contains(`label--inp-radio--wrong`)) {
+                el.classList.remove(`label--inp-radio--wrong`);
+            }
+        })
+
+        iconsCheckedAnswers.forEach(el => {
+            if(!el.classList.contains(`display-none`)) {
+                el.classList.add(`display-none`)
+            }
+        })
+
+        this.#resetInputs();
+
+    }
+
+    #resetInputs() {
+        inpRadioArr.forEach(el => el.checked = false);
+        inpRadioArr.forEach(el => el.disabled = false);
+
+        inpRadioArr.forEach(el => {
+            if(el.classList.contains(`inp-radio--wrong`)) {
+                el.classList.remove(`inp-radio--wrong`)
+            }
+        })
+
+        inpRadioArr.forEach(el => {
+            if(el.classList.contains(`inp-radio--correct`)) {
+                el.classList.remove(`inp-radio--correct`)
+            }
+        })
     }
 
     #hideSection() {
